@@ -1,0 +1,10 @@
+local BadgeService = game:GetService("BadgeService")
+local badgeId = 1234567890 -- Replace this with your actual badge ID
+
+game.Players.PlayerAdded:Connect(function(player)
+    -- Check if the player already has the badge
+    if not BadgeService:UserHasBadgeAsync(player.UserId, badgeId) then
+        -- Award the badge to the player
+        BadgeService:AwardBadge(player.UserId, badgeId)
+    end
+end)
